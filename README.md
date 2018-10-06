@@ -1,27 +1,56 @@
-This example demonstrates how to use [Express](http://expressjs.com/) 4.x and
-[Passport](http://passportjs.org/) to authenticate users using Facebook.  Use
-this example as a starting point for your own web applications.
+JavaScript PassportJS Express Google OAuth2 Demo
+================================================
 
-## Instructions
+获取google的oauth2 keys:
+---------------------
 
-To install this example on your computer, clone the repository and install
-dependencies.
+已经配置好，具体信息查看： https://console.developers.google.com/apis/credentials/oauthclient/616256860065-qt7sk53jo2qafomjsg2e14dt3sadrdof.apps.googleusercontent.com?project=localhost-testin-1538833257663
 
-```bash
-$ git clone git@github.com:passport/express-4.x-facebook-example.git
-$ cd express-4.x-facebook-example
-$ npm install
+然后修改`server.js`中的：
+
+```
+const GOOGLE_CLIENT_ID = '???';
+const GOOGLE_CLIENT_SECRET = '???';
 ```
 
-The example uses environment variables to configure the consumer key and
-consumer secret needed to access Facebook's API.  Start the server with those
-variables set to the appropriate credentials.
+运行：
+----
 
-```bash
-$ CLIENT_ID=__FACEBOOK_CLIENT_ID__ CLIENT_SECRET=__FACEBOOK_CLIENT_SECRET__ node server.js
+```
+npm install
+npm run demo
 ```
 
-Open a web browser and navigate to [http://localhost:3000/](http://localhost:3000/)
-to see the example in action.
+The profile got from google:
 
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/vK9dyjRnnWsMzzJTQ57fRJpH/passport/express-4.x-facebook-example'>  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/vK9dyjRnnWsMzzJTQ57fRJpH/passport/express-4.x-facebook-example.svg' /></a>
+```
+profile { id: '??????????????',
+  displayName: '姓名',
+  name: { familyName: '姓', givenName: '名' },
+  photos:
+   [ { value:
+        'https://lh3.googleusercontent.com/-vedwpnmw3as/AAAAAAAAAAI/AAAAAAAACfw/OsVo2IKf6h0/photo.jpg?sz=50' } ],
+  gender: undefined,
+  provider: 'google',
+  _raw:
+   '{\n "kind": "plus#person",\n "etag": "\\"jb1Xzanox6i8Zyse4DcYD8sZqy0/-ExfUIMMQVz19hvz_4K3NYVKVOA\\"",\n "objectType": "person",\n "id": "103033768625365787599",\n "displayName": "李鹏",\n "name": {  "familyName": "李",\n  "givenName": "鹏"\n },\n "image": {\n  "url": "https://lh3.googleusercontent.com/-vedwpnmw3as/AAAAAAAAAAI/AAAAAAAACfw/OsVo2IKf6h0/photo.jpg?sz=50",\n  "isDefault": false\n },\nisPlusUser": false,\n "language": "en",\n "verified": false\n}\n',
+  _json:
+   { kind: 'plus#person',
+     etag: '"jb1Xzanox6i8Zyse4DcYD8sZqy0/-ExfUIMMQVz19hvz_4K3NYVKVOA"',
+     objectType: 'person',
+     id: '103033768625365787599',
+     displayName: '李鹏',
+     name: { familyName: '李', givenName: '鹏' },
+     image:
+      { url:
+         'https://lh3.googleusercontent.com/-vedwpnmw3as/AAAAAAAAAAI/AAAAAAAACfw/OsVo2IKf6h0/photo.jpg?sz=50',
+        isDefault: false },
+     isPlusUser: false,
+     language: 'en',
+     verified: false } }
+user { id: '1111',
+  googleId: '103033768625365787599',
+  username: 'user-from-google',
+  displayName: 'UserFromGoogle' }
+
+```

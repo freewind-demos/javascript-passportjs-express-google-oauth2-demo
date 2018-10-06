@@ -1,7 +1,7 @@
 {
   "name": "express-4.x-facebook-example",
   "version": "0.0.0",
-  "description": "Express 4.x app using Passport for authentication with Facebook.",
+  "description": "Express 4.x app using Passport for authentication with Google.",
   "keywords": [
     "example",
     "express",
@@ -17,6 +17,9 @@
   "bugs": {
     "url": "https://github.com/passport/express-4.x-facebook-example/issues"
   },
+  "scripts": {
+    "demo": "node server.js"
+  },
   "dependencies": {
     "body-parser": "^1.13.2",
     "connect-ensure-login": "^0.1.1",
@@ -25,7 +28,7 @@
     "express": "^4.13.1",
     "express-session": "^1.11.3",
     "morgan": "^1.6.1",
-    "passport": "^0.2.2",
-    "passport-facebook": "^2.0.0"
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "1.0.0"
   }
 }
